@@ -3,8 +3,7 @@ package com.example.undersstandingmapping.controllers;
 import com.example.undersstandingmapping.models.Student;
 import com.example.undersstandingmapping.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +26,18 @@ public class StudentController {
         return studentRepository.findAll();
 
     }
+    @RequestMapping(method = RequestMethod.PUT, value = "/credit ")
+    public Student createStudent(@RequestBody Student student)
+    {
+        return studentRepository.save(student);
+    }
+    @RequestMapping(method = RequestMethod.DELETE, value = "/delete")
+    public void deleteStudent(@RequestParam Long id)
+    {
+        studentRepository.deleteById(id);
+    }
+
+
 
     // Transactions 1 and 2 completely.
 
