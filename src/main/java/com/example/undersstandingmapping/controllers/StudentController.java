@@ -22,8 +22,10 @@ public class StudentController {
     // actual url to which you're serving the response
     @RequestMapping("/getStudents")
     public List<Student> getStudent(){
+        System.out.println("vis");
 
         return studentRepository.findAll();
+
     }
 
     // Transactions 1 and 2 completely.
